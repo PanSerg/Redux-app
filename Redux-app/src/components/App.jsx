@@ -1,10 +1,11 @@
 import RecipeItem from './recipe-item/RecipeItem';
+import Header from './header/Header';
 
 function App() {
 
   return (
     <section>
-   
+      <Header />
       <div>
         <RecipeItem recipe={{
           id: 1,
