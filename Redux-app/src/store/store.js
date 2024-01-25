@@ -5,9 +5,12 @@ import { userSlice } from "./user/user.slice";
 const reducers = combineReducers({
     favorites: favoritesReducers,
     user: userSlice.reducer,
+    [api.reducerPath]: api.reducer,
 });
 
 export const store = configureStore({
-    reducer: reducers,
-    devTools: true,
-})
+  reducer: reducers,
+  devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
+});

@@ -1,0 +1,21 @@
+{
+    "recipes": [
+        {
+        "id": 1,
+        "name": "Apple Tart",
+        "image": "https://www.themealdb.com/meal/53083-Lamb-Pilaf-(Plov)-Recipe"
+        },
+
+        {
+        "id": 2,
+         "name": "Cake",
+        "image": "https://www.themealdb.com/meal/53082-Strawberries-Romanoff-Recipe"
+        },
+
+        {
+         "id": 3,
+        "name": "Apple Tart 2",
+        "image": "https://www.themealdb.com/meal/53076-Bread-omelette-Recipe"
+        }
+    ]
+}
