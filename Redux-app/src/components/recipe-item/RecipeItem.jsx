@@ -11,12 +11,12 @@ function RecipeItem({ recipe }) {
     r => r.id === recipe.id
   )
 
-  console.log(favorites);
+ 
 
   return (
     <>
           <div className={styles.item}>
-              {/* <img src="" all="" /> */}
+              <img src={recipe.image} all={recipe.name} />
               <h2>{recipe.name}</h2>
         <button onClick={() => toggleFavorites(recipe)
    

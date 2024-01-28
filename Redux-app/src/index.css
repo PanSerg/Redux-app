@@ -24,3 +24,21 @@ button{
 button:hover{
   background-color: blue;
 }
+
+form {
+  padding: 0 10px;
+}
+
+input {
+  border: 1px solid transparent;
+  color: #222;
+  padding: 4px 5px;
+  border-radius: 5px;
+  margin-bottom: 7px;
+  transition: border-color 0.4s ease-in-out;
+  display: block;
+}
+
+input:focus{
+  background-color: cadetblue;
+}
