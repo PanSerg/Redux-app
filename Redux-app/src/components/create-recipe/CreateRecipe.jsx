@@ -1,13 +1,25 @@
-import { useState } from "react"
+import { useState } from "react";
+import { useCreateRecipeMutation } from "../../store/api/recipe.api";
+
+const defaultValue = {
+    name: '',
+    image: '',
+};
 
 export default function CreateRecipe() {
     const [recipe, setRecipe] = useState({
         name: '',
         image: '',
-    })
+    });
 
-    const handleSubmit = () => {
-        console.log(recipe);
+    const [createRecipe] = useCreateRecipeMutation();
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        createRecipe(recipe).then(() => {
+            setRecipe(defaultValue);
+        })
     }
 
     return <div>
@@ -20,7 +32,7 @@ export default function CreateRecipe() {
                 })} />
         </label>
             <label>
-            <input type="text" placeholder="image"
+            <input type="text" placeholder="Image"
                 value={recipe.image} onChange={e => setRecipe({
                     ...recipe, image: e.target.value
                 })} />
@@ -28,4 +40,4 @@ export default function CreateRecipe() {
             <button type="submit">Create</button>
             </form>
     </div>
-};
+}

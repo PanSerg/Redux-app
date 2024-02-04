@@ -1,25 +1,30 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API_URL = 'http://localhost:5173/resipes';
+const API_URL = "http://localhost:5173/resipes";
 
 export const api = createApi({
-    reducerPath: 'api',
-    tagTypes: ['Recipe'],
-    baseQuery: fetchBaseQuery({
-        baseUrl: API_URL,
+  reducerPath: "api",
+  tagTypes: ["Recipe"],
+  baseQuery: fetchBaseQuery({
+    baseUrl: API_URL,
+  }),
+  endpoints: (builder) => ({
+    getRecipes: builder.query({
+      query: () => "/?_sort=id&_order=desc",
+      providesTags: () => [
+        {
+          type: "Recipe",
+        },
+      ],
     }),
-     endpoints: builder => ({
-        getRecipes: builder.query({
-            query: () => '/',
-        }),
-        createRecipe: builder.mutation({
-            query: (recipe) => ({
-                body: recipe,
-                url: '/',
-                method: 'POST',
-            }),
-        }),
+    createRecipe: builder.mutation({
+      query: (recipe) => ({
+        body: recipe,
+        url: "/",
+        method: "POST",
+      }),
     }),
+  }),
 });
 
-export const {useGetRecipesQuery} = api;
+export const { useGetRecipesQuery } = api;
