@@ -6,7 +6,7 @@ import CreateRecipe from './create-recipe/CreateRecipe';
 // import User from './user/User';
 
 function App() {
-  const { isLoading, data } = useGetRecipesQuery()
+  const { isLoading, data } = useGetRecipesQuery(null)
 
   return (
     <section>

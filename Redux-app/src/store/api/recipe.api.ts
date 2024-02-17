@@ -1,3 +1,4 @@
+import { IRecipeData } from '../../types/recipe.types';
 import { api } from './api';
 
 export const recipeApi = api.injectEndpoints({
@@ -5,7 +6,7 @@ export const recipeApi = api.injectEndpoints({
         getRecipes: builder.query({
             query: () => '/',
         }),
-        createRecipe: builder.mutation({
+        createRecipe: builder.mutation<null, IRecipeData>({
             query: recipe => ({
                 body: recipe,
                 url: '/',

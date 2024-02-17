@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useCreateRecipeMutation } from "../../store/api/recipe.api";
+import { IRecipeData } from "../../types/recipe.types";
 
-const defaultValue = {
+const defaultValue: IRecipeData = {
     name: '',
     image: '',
 };
@@ -14,7 +15,7 @@ export default function CreateRecipe() {
 
     const [createRecipe] = useCreateRecipeMutation();
 
-    const handleSubmit = e => {
+    const handleSubmit = (e:FormEvent<HTMLFormElement>)=> {
         e.preventDefault();
 
         createRecipe(recipe).then(() => {
@@ -22,7 +23,8 @@ export default function CreateRecipe() {
         })
     }
 
-    return <div>
+    return (
+        <div>
         <form onSubmit={handleSubmit}>
             <p>Create new recipe:</p>
         <label>
@@ -39,5 +41,6 @@ export default function CreateRecipe() {
         </label>
             <button type="submit">Create</button>
             </form>
-    </div>
+        </div>
+    )
 }
