@@ -1,0 +1,33 @@
+
+
+I asked the question in various other forums as well. I arrived at the correct answer a few days back and would like to share it here.
+
+Firstly, install TypeScript and types for react and react-dom,
+
+npm install -D typescript @types/react @types/react-dom
+
+Next, rename the vite.config.js file to vite.config.ts.
+
+Thirdly, configure your tsconfig.json as follows,
+
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
